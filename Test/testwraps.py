@@ -1,6 +1,8 @@
 import time
+from functools import wraps
 
 def run_time(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         """运行时间装饰器"""
         time1 = time.time()
@@ -16,5 +18,5 @@ def test():
     print([i for i in range(10000) if i%200==0])
 
 if __name__ == '__main__':
-    print(test.__name__) # wrapper
-    print(test.__doc__) # 运行时间装饰器
+    print(test.__name__) # test
+    print(test.__doc__) # 测试
